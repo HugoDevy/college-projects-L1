@@ -1,0 +1,71 @@
+#include<stdio.h> 
+#include<stdlib.h>
+
+void reading_array(int arrA[] , int size ) {
+for (int i = 0 ; i < size ; i++) {
+    scanf("%d",&arrA[i]) ; 
+
+} 
+}
+
+void printing_array(int arrB[] , int size ){
+     for (int j = 0 ; j < size ; j++ )
+      {
+        printf("%d ", arrB[j]) ; 
+     }
+     printf("\n") ;
+}
+
+void write_into_new_array(int arrC[] , int arrB[] , int arrD[] , int size1 , int size2  ) 
+{
+         for ( int j = 0; j < size1; j++)
+         {
+          arrD[j] = arrC[j]  ; 
+         }
+
+          for ( int j = 0; j < size2; j++)
+         {
+            arrD[size1+j]  = arrB[j] ; 
+         }
+              
+}
+
+void swap(int arrK[] , int pos1 , int pos2 ) {
+
+  int temp = arrK[pos1] ;  
+
+  arrK[pos1] = arrK[pos2] ; 
+
+  arrK[pos2] = temp ; 
+
+      }
+int main () {
+    int arr1[4] , arr2[4] , arr3[8] ;
+
+       printf("entrer les valeurs de premier tableux \n") ;      
+       reading_array(arr1 , 4) ; 
+
+       printf("entrer les valeurs de premier tableux \n") ;      
+       reading_array(arr2 , 4) ;
+
+       write_into_new_array (arr1 , arr2 , arr3 , 4 , 4) ;
+
+       printf("le tableux avant le trier \n") ; 
+       printing_array (arr3 , 8 ) ; 
+
+       for(int i = 0 ; i < 8 ; i++) 
+       {
+        for ( int j = i+1 ; j < 8; j++)
+        {
+            if(arr3[i] > arr3[j]) 
+            {
+              swap(arr3 , i , j ) ; 
+            }
+        }
+        
+       }
+        printf("le tableux apres le trier \n") ; 
+        printing_array (arr3 , 8 ) ; 
+
+    return 0 ; 
+}
